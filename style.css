@@ -1,0 +1,48 @@
+@font-face {
+  font-family: Fuzzy;
+  src: url("fonts/FuzzyBubbles-Bold.ttf");
+}
+
+:root {
+  --boardHeight : 98vh;
+  --keyNos : 14;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Fuzzy;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.board {
+  width: 90vw;
+  height: var(--boardHeight);
+  overflow: scroll;
+  border: 2px solid;
+  border-radius: 0.5rem;
+  background: black;
+}
+
+.key {
+  background: white;
+  width: 60%;
+  height: calc((var(--boardHeight) - 4px)/var(--keyNos));
+  border: 2px solid;
+  border-radius: 0.5rem 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  
+}
+
+.keyName {
+  transform: rotate(90deg) translateY(25%);
+  width: calc((var(--boardHeight) - 4px)/var(--keyNos));
+  transform-origin: center;
+  text-align: center;
+}
