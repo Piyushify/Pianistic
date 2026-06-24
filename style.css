@@ -24,7 +24,8 @@ body {
   width: 90vw;
   position: absolute;
   height: var(--boardHeight);
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   border: 2px solid;
   border-radius: 0.5rem;
   background: black;
@@ -32,15 +33,14 @@ body {
   anchor-name: --board;
 }
 
-.key {
+.key.white {
   background-image: linear-gradient(to right, hsla(0, 0%, 90%, 1), hsla(0, 0%, 98%, 1), hsla(0, 0%, 90%, 1));
-  width: 100%;
+  width: 70%;
   height: calc((var(--boardHeight) - 4px)/var(--keyNos));
   border: 1.5px solid;
   border-radius: 0.35rem;
   display: flex;
   align-items: center;
-  
 }
 
 .keyName {
@@ -50,10 +50,11 @@ body {
   text-align: center;
 }
 
-.pressed {
+.pressed.white {
   box-shadow: 0 0 15px hsla(0, 0%, 40%, 1) inset;
   border: 3px solid;
 }
+
 .pad {
   position-anchor: --board;
   position-area: start end;
@@ -63,4 +64,25 @@ body {
   right: 0;
   width: 40%;
   background: black;
+  z-index: 9999;
+}
+
+.key.black {
+  background-image: linear-gradient(to right, hsla(0, 0%, 20%, 1), hsla(0, 0%, 5%, 1), hsla(0, 0%, 0%, 1));
+  position: absolute;
+  width: 70%;
+  height: calc((var(--boardHeight) - 4px)/var(--keyNos));
+  border: 2px solid black;
+  border-radius: 0.35rem;
+  display: flex;
+  align-items: center;
+  color: white;
+  transform: translateX(25%) translateY(-50%) scale(0.75);
+  box-shadow: 0 0 15px hsla(0, 0%, 40%, 1) , 0 0 15px hsla(0, 0%, 40%, 1) inset;
+}
+
+.pressed.black {
+  box-shadow: 0;
+  border: 1.5px solid black;
+  transform: translateX(25%) translateY(-50%) scale(0.7);
 }
