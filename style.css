@@ -5,7 +5,7 @@
 
 :root {
   --boardHeight : 98vh;
-  --keyNos : 14;
+  --keyNos : 10;
 }
 
 * {
@@ -22,19 +22,22 @@ body {
 }
 .board {
   width: 90vw;
+  position: absolute;
   height: var(--boardHeight);
   overflow: scroll;
   border: 2px solid;
   border-radius: 0.5rem;
   background: black;
+  padding-left: 0.25rem;
+  anchor-name: --board;
 }
 
 .key {
-  background: white;
-  width: 60%;
+  background-image: linear-gradient(to right, hsla(0, 0%, 90%, 1), hsla(0, 0%, 98%, 1), hsla(0, 0%, 90%, 1));
+  width: 100%;
   height: calc((var(--boardHeight) - 4px)/var(--keyNos));
-  border: 2px solid;
-  border-radius: 0.5rem 0 0 0.5rem;
+  border: 1.5px solid;
+  border-radius: 0.35rem;
   display: flex;
   align-items: center;
   
@@ -45,4 +48,19 @@ body {
   width: calc((var(--boardHeight) - 4px)/var(--keyNos));
   transform-origin: center;
   text-align: center;
+}
+
+.pressed {
+  box-shadow: 0 0 15px hsla(0, 0%, 40%, 1) inset;
+  border: 3px solid;
+}
+.pad {
+  position-anchor: --board;
+  position-area: start end;
+  position: absolute;
+  height: calc(((var(--boardHeight) - 4px)/var(--keyNos))*52);
+  top: 0;
+  right: 0;
+  width: 40%;
+  background: black;
 }

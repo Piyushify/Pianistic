@@ -25,9 +25,15 @@ for (let i = 0;i<whiteKeyset.length;i++){
   sounds[whiteKeyset[i]] = new Audio(`keys/${whiteKeyset[i]}.mp3`);
 }
 
-board.addEventListener("click", (event) => {
+board.addEventListener("touchstart", (event) => {
   const key = event.target.closest(".key");
+  key.classList.add("pressed");
   const note = key.textContent.trim();
   sounds[note].currentTime = 0;
   sounds[note].play();
+});
+
+board.addEventListener("touchend", (event) => {
+  const key = event.target.closest(".key");
+  key.classList.remove("pressed");
 });
