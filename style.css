@@ -13,6 +13,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Fuzzy;
+  user-select: none;
 }
 body {
   display: flex;
@@ -76,13 +77,21 @@ body {
   border-radius: 0.35rem;
   display: flex;
   align-items: center;
-  color: white;
+  color: black;
   transform: translateX(25%) translateY(-50%) scale(0.75);
-  box-shadow: 0 0 15px hsla(0, 0%, 40%, 1) , 0 0 15px hsla(0, 0%, 40%, 1) inset;
+  box-shadow: 0 0 20px hsla(0, 0%, 40%, 1) , 0 0 10px hsla(0, 0%, 40%, 1) inset;
+}
+
+.black .keyName {
+  display: none;
 }
 
 .pressed.black {
   box-shadow: 0;
   border: 1.5px solid black;
   transform: translateX(25%) translateY(-50%) scale(0.7);
+}
+
+.white .keyName {
+  display: none;
 }
