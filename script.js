@@ -45,13 +45,16 @@ for (let i = 0;i<keySet.length;i++){
 
 board.addEventListener("touchstart", (event) => {
   const key = event.target.closest(".key");
+  if(key){
   key.classList.add("pressed");
   const note = key.textContent;
   sounds[note].currentTime = 0;
-  sounds[note].play().catch(() => {});
+  sounds[note].play().catch(() => {});}
 });
 
 board.addEventListener("touchend", (event) => {
   const key = event.target.closest(".key");
+  if (key) {
   key.classList.remove("pressed");
+  }
 });
